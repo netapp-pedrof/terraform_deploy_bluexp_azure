@@ -28,7 +28,7 @@ Regarding NetApp, we need to have a BlueXP account previsouly created and a work
 
 ```bash
 #clone this repository
-$git clone blablabla
+$git clone https://github.com/netapp-pedrof/terraform_deploy_bluexp_azure.git
 
 #Logon with a service-principal which must have rights to create service-principal, custom role and virtual machine.
 az login –service-principal -u <app-id> -p <password/cert>  --tenant <tennant-id>
