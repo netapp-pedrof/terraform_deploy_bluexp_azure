@@ -24,7 +24,16 @@ Using Terraform to deploy a Netapp BlueXP Connector using Terraform. On Netapp s
 
 ## Testing
 First of all we need to understand the entities involved here. Azure which is the hyperscaler where we will deploy our BlueXP Connector and Netapp. For Azure there are multiple ways to authenticate and deploy resources. This was focus on a service-principal.
-Regarding NetApp, we need to have a BlueXP account previsouly created and a workspace defined, since the BlueXP will be tied to that. In addiction to be able to link the BlueXP Connector to BlueXP NetApp SaaS platform, we will need in this case a refresh token, that we can gather from https://services.cloud.netapp.com/refresh-token/ .
+Regarding NetApp, we need to have a BlueXP account previsouly created and a workspace defined, since the BlueXP will be tied to that. In addiction to be able to link the BlueXP Connector to BlueXP NetApp SaaS platform, we will need in this case a refresh token.
+
+Requirements for NetApp are:
+* Create a BlueXP Account @ https://bluexp.netapp.com
+* Refresh Token which can be gathered here -> https://services.cloud.netapp.com/refresh-token/
+* The BlueXP VM needs only Outbound Internet connection. If you want to restrict the access, please check the following link -> https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html#outbound-internet-access
+
+Requirements for Azure are:
+* Service Principal which must have permissions to deploy Custom Role, Virtual Machines and objects related.
+* vnet and subnet with outbount internet connection.
 
 ```bash
 #clone this repository
@@ -47,8 +56,8 @@ After the NetApp BlueXP deployment, you may access directly to your BlueXP conne
 ## External Links
 **Netapp
 Terraform & Cloud Manager Terraform Provider (netapp.com)
-https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest/docs
-https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest/docs/resources/connector_azure
+* https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest/docs
+* https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest/docs/resources/connector_azure
  
 **Azure
-https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+* https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
